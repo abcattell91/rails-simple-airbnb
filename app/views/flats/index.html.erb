@@ -10,23 +10,24 @@
       </div>
     </div>
 
-
-    <div class="card" style="width: 18rem;">
+<div class="row row-cols-1 row-cols-md-3 mt-3">
+  <% @flats.each do |flat| %>
+  <div class="col-md-4 mb-4">
+    <div class="card h-100 img-thumbnail mb-2" style="">
       <img src="https://source.unsplash.com/random" class="card-img-top img-thumbnail" alt="...">
-      <% @flats.each do |flat| %>
       <div class="card-body">
         <div class="card-title"><h5><%= flat.name %></h5></div>
         <p class="card-text"><%= flat.name %></p>
         <p class="card-text"><%= flat.address %></p>
-        <p class="card-text"><%= flat.description %></p>
-        <p><i class="card-text fa-solid fa-sterling-sign"></i><%= flat.price_per_night %></p>
-        <p><i class=" card-text fa-solid fa-user-group"></i><%= flat.number_of_guests %></p>
+        <p><i class="card-text fa-solid fa-sterling-sign" ></i><%= flat.price_per_night %><i class=" card-text fa-solid fa-user-group"></i><%= flat.number_of_guests %></p>
         <%= link_to 'more info', flat_path(flat) %>
         <%= link_to 'edit', edit_flat_path(flat) %>
         <%= link_to 'delete', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% end %>
       </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 
     </div>
