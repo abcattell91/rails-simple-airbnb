@@ -1,18 +1,33 @@
-<div class="container p-5 m-5 shadow bg-white rounded">
-    <nav class="text-start">Simple Airbnb</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between p-3">
+  <h4 class="text-start">Simple Airbnb</h4>
+  <h4 class="text-end"><%= link_to 'Create a new flat', new_flat_path %></h4>
+</nav>
 
-    <h4 class="text-end sticky-top"><%= link_to 'Create a new flat', new_flat_path %></h4>
-    <div class="">
-    <div class="d-grid gap-1 p-5 names">
-    <% @flats.each do |flat|  %>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 p-2 bg-light border rounded"><h5><%= link_to flat.name, flat_path(flat) %></h5>
-      <p><%= flat.name %></p>
-      <p><%= flat.address %></p>
-      <p><%= flat.description %></p>
-      <p><%= flat.price_per_night %></p>
-      <p><%= flat.number_of_guests %></p>
+  <div class="container mt-5 p-3 shadow bg-white rounded">
+    <div class="row">
+      <div class="col-12">
+        <h1>All Flats</h1>
       </div>
-    <% end %>
     </div>
+
+
+    <div class="card" style="width: 18rem;">
+      <img src="https://source.unsplash.com/random" class="card-img-top img-thumbnail" alt="...">
+      <% @flats.each do |flat| %>
+      <div class="card-body">
+        <div class="card-title"><h5><%= flat.name %></h5></div>
+        <p class="card-text"><%= flat.name %></p>
+        <p class="card-text"><%= flat.address %></p>
+        <p class="card-text"><%= flat.description %></p>
+        <p><i class="card-text fa-solid fa-sterling-sign"></i><%= flat.price_per_night %></p>
+        <p><i class=" card-text fa-solid fa-user-group"></i><%= flat.number_of_guests %></p>
+        <%= link_to 'more info', flat_path(flat) %>
+        <%= link_to 'edit', edit_flat_path(flat) %>
+        <%= link_to 'delete', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+      </div>
+
+
     </div>
 </div>
