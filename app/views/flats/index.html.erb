@@ -1,14 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between p-3">
-  <h4 class="text-start">Simple Airbnb</h4>
-  <h4 class="text-end"><%= link_to 'Create a new flat', new_flat_path %></h4>
-</nav>
-
-  <div class="container mt-5 p-3 shadow bg-white rounded">
-    <div class="row">
-      <div class="col-12">
-        <h1>All Flats</h1>
-      </div>
+<%= render 'nav' %>
+<div class="container my-5 p-3 shadow bg-white rounded">
+  <div class="row">
+    <div class="col-12">
+      <h1>All Flats</h1>
     </div>
+  </div>
 
 <div class="row row-cols-1 row-cols-md-3 mt-3">
   <% @flats.each do |flat| %>
@@ -16,13 +12,12 @@
     <div class="card h-100 img-thumbnail mb-2" style="">
       <img src="https://source.unsplash.com/random" class="card-img-top img-thumbnail" alt="...">
       <div class="card-body">
-        <div class="card-title"><h5><%= flat.name %></h5></div>
-        <p class="card-text"><%= flat.name %></p>
+        <div class="card-title"><h5><%= flat.name%></h5></div>
         <p class="card-text"><%= flat.address %></p>
-        <p><i class="card-text fa-solid fa-sterling-sign" ></i><%= flat.price_per_night %><i class=" card-text fa-solid fa-user-group"></i><%= flat.number_of_guests %></p>
-        <%= link_to 'more info', flat_path(flat) %>
-        <%= link_to 'edit', edit_flat_path(flat) %>
-        <%= link_to 'delete', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <p><i class="card-text fa-solid fa-sterling-sign">&nbsp</i><%= flat.price_per_night %>&nbsp<i class="card-text fa-solid fa-user-group"></i>&nbsp<%= flat.number_of_guests %></p>
+        <%= link_to 'More Info', flat_path(flat), class: "flat-info btn btn-outline-primary btn-sm" %>
+        <%= link_to 'Edit', edit_flat_path(flat), class: "flat-edit btn btn-outline-primary btn-sm" %>
+        <%= link_to 'Remove', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' }, class: "flat-destroy btn btn-outline-primary btn-sm" %>
       </div>
     </div>
   </div>

@@ -1,7 +1,9 @@
-<div class="container p-5 m-5 shadow bg-white rounded">
-<h1><%= @flat.name %></h1>
-<p><%= @flat.address %></p>
-<p><%= @flat.description %></p>
-
-<%= link_to 'Back', flats_path %>
+<%= render 'nav' %>
+<div class="p-5 m-5 shadow-sm bg-light rounded">
+  <h1><%= @flat.name %></h1>
+</div>
+<div class="p-5 m-5 shadow-sm bg-light rounded">
+  <p><%= @flat.address %></p>
+  <p><%= @flat.description %></p>
+  <%= link_to 'Back', flats_path, class:'class: "btn btn-primary btn-sm text-light"' %>
 </div>
