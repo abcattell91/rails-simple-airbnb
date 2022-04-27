@@ -1,10 +1,12 @@
 class FlatsController < ApplicationController
   # frozen_string_literal: true
-  before_action :find_flat, only: %i[show edit update destroy]
+  before_action :find_flat, only: %i[ show edit update destroy]
 
   def index
     @flats = Flat.all
   end
+
+  def show; end
 
   def new
     @flat = Flat.new
@@ -21,8 +23,6 @@ class FlatsController < ApplicationController
 
   def edit; end
 
-  def show; end
-
   def update
     @flat.update(flat_params)
 
@@ -32,7 +32,7 @@ class FlatsController < ApplicationController
   def destroy
     @flat.destroy
 
-    redirect_to flat_path
+    redirect_to flats_path
   end
 
   private
