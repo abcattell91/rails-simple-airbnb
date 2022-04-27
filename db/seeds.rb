@@ -16,7 +16,9 @@ puts 'Creating flats...'
     address: Faker::Address.street_address,
     description: "A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory",
     price_per_night: rand(50..999),
-    number_of_guests: rand(1..10)
+    number_of_guests: rand(1..10),
+    picture_url:
+    ['https://images.unsplash.com/photo-1464890100898-a385f744067f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80 870w', ]
   )
 
   puts "flat #{flat.id} is created"

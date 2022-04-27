@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   # frozen_string_literal: true
-  before_action :find_flat, only: %i[ show edit update destroy]
+  before_action :find_flat, only: %i[show edit update destroy]
 
   def index
     @flats = Flat.all
@@ -38,7 +38,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests)
+    params.require(:flat).permit(:name, :address, :description, :price_per_night, :number_of_guests, :picture_url)
   end
 
   def find_flat
