@@ -1,4 +1,24 @@
 <nav class="navbar shadow-sm navbar-expand-lg navbar-light bg-light justify-content-between p-3 sticky-top">
   <h1><%= link_to 'Simple Airbnb', flats_path, class:"p-3 text-start"%></h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      <%= form_with url: "/flats/search", method: :get do |form| %>
+        <%= form.text_field :query %>
+        <%= form.submit "Search", class: "nav-link", class:"btn btn-success mr-2"%>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+
+
+
+
   <h4> <%= link_to 'Add Flat', new_flat_path, class: "flat-add btn btn-outline-primary btn-lg me-3" %></h4>
+
+</div>
+
 </nav>

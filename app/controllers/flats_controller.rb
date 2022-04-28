@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FlatsController < ApplicationController
   # frozen_string_literal: true
   before_action :find_flat, only: %i[show edit update destroy]
@@ -33,6 +35,16 @@ class FlatsController < ApplicationController
     @flat.destroy
 
     redirect_to flats_path
+  end
+
+  def search
+    if @flats = Flat.all
+      @flats_found = Flat.where(name: params[:query])
+      @query = params[:query]
+    else
+      params[:query] == ''
+      redirect_to flats_path
+    end
   end
 
   private
