@@ -1,17 +1,32 @@
 <%= render 'nav' %>
-<div class="show-container">
-  <div class=".bg-secondary.bg-gradient hero-image"><img src="<%= @flat.picture_url %>"></div>
+<div class="image-container"><img class="hero-image" src="<%= @flat.picture_url %>">
+</div>
 
+<div>
+  <h1 class="hero-text"><%= @flat.name %></h1>
+</div>
 
-  <div class="hero-text">
-    <h1><%= @flat.name %></h1>
-  </div>
+<div class="container margin-top-negative">
+  <div class="row">
+    <div class="col-8">
+      <div class="show-card p-5 m-5 shadow-sm bg-light rounded">
+        <h3><%= @flat.address %></h3>
+        <h4><i class="card-text fa-solid fa-sterling-sign">&nbsp</i><%= @flat.price_per_night %>pn
+        &nbsp<i class="card-text fa-solid fa-user-group"></i>&nbsp<%= @flat.number_of_guests %> guests</h4>
+        <p><%= @flat.description %></p>
+        <%= link_to 'Back', flats_path, class: "btn btn-primary btn-sm text-light" %>
+        <%= link_to 'Update Flat', edit_flat_path(@flat), class: "btn btn-primary btn-sm text-light" %>
 
-<div class="p-5 m-5 shadow-sm bg-light rounded">
-  <p><%= @flat.address %></p>
-  <p><%= @flat.description %></p>
-  <%= link_to 'Back', flats_path, class: "btn btn-primary btn-sm text-light" %>
-  <%= link_to 'Update Flat', edit_flat_path(@flat), class: "btn btn-primary btn-sm text-light" %>
+        <div class="map">
+        </div>
+
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="show-card">
+        <div><%= render 'book' %></div>
+      </div>
+    </div>
 
   </div>
 </div>
